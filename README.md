@@ -17,7 +17,9 @@
 1. Прикрепите в файл README.md скриншот авторизации в админке.
 2. Приложите в файл README.md текст использованных команд в GitHub.
 
-### Задание 1
+---
+
+### Выполнение 1
 
 Что я делал:
 
@@ -69,16 +71,57 @@ systemctl enable zabbix-server zabbix-agent apache2
 ```
 10. Открыл браузер и в строке ввел: ' http://192.168.1.71/zabbix/ ' и попал страницу входа. Для входа необходимо указать пользователя " Admin" пароль "zabbix"
 
-![Страница входа](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/inter.png)
-![Страница входа](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/dash-zabbix.png)
-
-
-`При необходимости прикрепитe сюда скриншоты
-![Назва](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/inter.png)`
-
+![Вход в zabbix](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/inter.png)
+![Dashboard](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/dash-zabbix.png)
 
 ---
 
 ### Задание 2
 
+Что нужно сделать:
+1. Выполняя ДЗ, сверяйтесь с процессом отражённым в записи лекции.
+2. Установите Zabbix Agent на 2 вирт.машины, одной из них может быть ваш Zabbix Server.
+3. Добавьте Zabbix Server в список разрешенных серверов ваших Zabbix Agentов.
+4. Добавьте Zabbix Agentов в раздел Configuration > Hosts вашего Zabbix Servera.
+5. Проверьте, что в разделе Latest Data начали появляться данные с добавленных агентов.
 
+Требования к результаты
+Приложите в файл README.md скриншот раздела Configuration > Hosts, где видно, что агенты подключены к серверу
+Приложите в файл README.md скриншот лога zabbix agent, где видно, что он работает с сервером
+Приложите в файл README.md скриншот раздела Monitoring > Latest data для обоих хостов, где видны поступающие от агентов данные.
+Приложите в файл README.md текст использованных команд в GitHub
+
+---
+
+### Выполнение 2
+
+1. Я выполнил установку 2-ух Агентов Zabbix на 2-ух хостах. Один хост - это локальная машина с установленным zabbix-server, а второй хост - это ВМ, запущенная на локальном хосте. Для установки на локальной машине я выполнил следующие команды:
+2. По-скольку репозиторий на данной машине уже подключен (с установкой zabbix-server), то мне необходимо просто установить сам Агент:
+
+![Выбор установки](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/inst-agent.png)
+
+```bash 
+sudo apt install zabbix-agent
+```
+3. Дальше я запускаю перезагрузку сервиса и его включение в автозагрузку:
+
+```bash
+systemctl restart zabbix-agent
+
+systemctl enable zabbix-agent
+```
+4. Нашел конфигурационный файл:
+```bash 
+sudo find / -name zabbix_agentd.conf 
+``` 
+и отредактировал строку для подключения Агента к Серверу:
+```bash
+sudo nano /etc/zabbix/zabbix_agentd.conf
+```
+![Редактирование](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/nano.png)
+
+5. После редактирования файла я снова рестартовал Сервис zabbix.
+
+![Логи подключения](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/tail.png)
+![Данные](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/last-data.png)
+![Редактирование](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/nano.png)
