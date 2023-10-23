@@ -70,7 +70,7 @@ systemctl enable zabbix-server zabbix-agent apache2
 10. Открыл браузер и в строке ввел: ' http://192.168.1.71/zabbix/ ' и попал страницу входа. Для входа необходимо указать пользователя " Admin" пароль "zabbix"
 
 ![Страница входа](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/inter.png)
-![Страница входа](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/dssh-zabbix.png)
+![Страница входа](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/dash-zabbix.png)
 
 
 `При необходимости прикрепитe сюда скриншоты
