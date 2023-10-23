@@ -123,7 +123,11 @@ sudo nano /etc/zabbix/zabbix_agentd.conf
 
 5. После редактирования файла я снова рестартовал Сервис zabbix.
 
-Это логи подключения Сервера к Агенту
+Страница мониторинга
+
+![Монитор](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/monitor.png)
+
+Логи подключения Сервера к Агенту
 
 ![Логи подключения](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/tail.png)
 
