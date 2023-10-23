@@ -22,6 +22,9 @@
 Что я делал:
 
 1. Это задание выполнял по видеоуроку,немного изменив параметры указанные экспертом. Я устанавливал версию для ОС Ubuntu 22.04 т.к. на локальной машине (на железе) это основная ОС.
+
+![Страница входа](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/install_set.png)
+
 2. Сначала обновил систему
 ```bash 
 sudo apt update
@@ -65,8 +68,9 @@ systemctl restart zabbix-server zabbix-agent apache2
 systemctl enable zabbix-server zabbix-agent apache2
 ```
 10. Открыл браузер и в строке ввел: ' http://192.168.1.71/zabbix/ ' и попал страницу входа. Для входа необходимо указать пользователя " Admin" пароль "zabbix"
-![Страница входа](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/inter.png)
 
+![Страница входа](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/inter.png)
+![Страница входа](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/dssh-zabbix.png)
 
 
 `При необходимости прикрепитe сюда скриншоты
