@@ -95,26 +95,27 @@ systemctl enable zabbix-server zabbix-agent apache2
 
 ### Выполнение 2
 
-1. Я выполнил установку 2-ух Агентов Zabbix на 2-ух хостах. Один хост - это локальная машина с установленным zabbix-server, а второй хост - это ВМ, запущенная на локальном хосте. Для установки на локальной машине я выполнил следующие команды:
-2. По-скольку репозиторий на данной машине уже подключен (с установкой zabbix-server), то мне необходимо просто установить сам Агент:
+1. Я выполнил установку 2-ух Агентов Zabbix на 2-ух хостах. Один хост - это локальная машина с установленным zabbix-server, а второй хост - это ВМ, запущенная на локальном хосте.По-скольку репозиторий на данной машине уже подключен (с установкой zabbix-server), то мне необходимо просто установить сам Агент:
 
 ![Выбор установки](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/inst-agent.png)
+
+Для установки на локальной машине я выполнил следующие команды:
 
 ```bash 
 sudo apt install zabbix-agent
 ```
-3. Дальше я запускаю перезагрузку сервиса и его включение в автозагрузку:
+2. Дальше я запускаю перезагрузку сервиса и его включение в автозагрузку:
 
 ```bash
 systemctl restart zabbix-agent
 
 systemctl enable zabbix-agent
 ```
-4. Нашел конфигурационный файл:
+3. Нашел конфигурационный файл:
 ```bash 
 sudo find / -name zabbix_agentd.conf 
 ``` 
-и отредактировал строку для подключения Агента к Серверу:
+   и отредактировал строку для подключения Агента к Серверу:
 ```bash
 sudo nano /etc/zabbix/zabbix_agentd.conf
 ```
@@ -122,6 +123,10 @@ sudo nano /etc/zabbix/zabbix_agentd.conf
 
 5. После редактирования файла я снова рестартовал Сервис zabbix.
 
+Это логи подключения Сервера к Агенту
+
 ![Логи подключения](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/tail.png)
+
+Последние данные 
+
 ![Данные](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/last-data.png)
-![Редактирование](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/nano.png)
