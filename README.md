@@ -1,4 +1,4 @@
-# Домашнее задание к занятию «Система мониторинга Zabbix» - Саведьев Алексей SYS-25
+# Домашнее задание к занятию «Система мониторинга Zabbix» - Савельев Алексей SYS-25
 
 
 ---
@@ -33,7 +33,9 @@ sudo apt install postgresql
 4. Установил репозиторий Zabbix
 ```bash
 wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-4+ubuntu22.04_all.deb
+
 dpkg -i zabbix-release_6.0-4+ubuntu22.04_all.deb
+
 apt update
 ```
 5. Установил Zabbix сервер, веб-интерфейс.
@@ -43,6 +45,7 @@ apt install zabbix-server-pgsql zabbix-frontend-php php8.1-pgsql zabbix-apache-c
 6. Создал базу данных.
 ```bash
 sudo -u postgres createuser --pwprompt zabbix
+
 sudo -u postgres createdb -O zabbix zabbix
 ```
 7. На хосте Zabbix сервера импортировал начальную схему и данные.
@@ -58,15 +61,16 @@ DBPassword=password
 Запустил процессы Zabbix сервера и настроил их запуск при загрузке ОС.
 ```bash
 systemctl restart zabbix-server zabbix-agent apache2
+
 systemctl enable zabbix-server zabbix-agent apache2
 ```
 10. Открыл браузер и в строке ввел: ' http://192.168.1.71/zabbix/ ' и попал страницу входа. Для входа необходимо указать пользователя " Admin" пароль "zabbix"
-![Страница входа](ссылка на скриншот 1)
+![Страница входа](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/inter.png)
 
 
 
 `При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
+![Назва](https://github.com/Lexacbr/zabbix-hw/blob/main/screenshots/inter.png)`
 
 
 ---
